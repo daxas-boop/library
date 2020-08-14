@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Daxas Library</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <header id="header"> Daxa's Library
+        <div id="logo-container"> 
+           <img id="logo" src="images/logo.png" alt="Book logo">
+        </div>
+    </header>
+    <div id="book-container">
+        <div class="book">
+            <p class="read">NOT Read</p>
+            <h2 class="title">Harry Potter</h2>
+            <p class="author">Author: J. K. Rowling</p>
+            <p class="pages">Pages: 320</p>
+        </div>
+    </div>
+
+    <button id="new-book">NEW BOOK</button> <!-- make form popout -->
+    <form id="form" class="hidden">
+        <label for="title"> Title 
+            <input id="title" type="text"> 
+        </label>
+        <label for="author"> Author 
+            <input id="author" type="text"> 
+        </label>
+        <label for="pages"> Pages 
+            <input id="pages" type="number"> 
+        </label>
+        <label for="read"> Read 
+            <input id="read" type="checkbox"> 
+        </label>
+        <button id="submit">Submit</button>
+    </form>
+    <footer id="footer"> </footer>
+
+
+    <script src='script.js'></script>
+</body>
+</html>
