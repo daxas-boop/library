@@ -53,7 +53,7 @@ body{
     position: relative;
     width: 200px;
     height: 200px;
-    background: #4f4c53;;
+    background: #4f4c53;
     border-radius: 5%;
     display: flex;
     flex-direction: column;
@@ -66,6 +66,7 @@ body{
 .title{
     align-self: center;
     word-wrap: break-word;
+    word-break: break-all;
 }
 
 .author{
@@ -77,10 +78,8 @@ body{
 }
 
 .read {
-    position: absolute;
-    top: 5px;
-    right: 5px;
     color: red;
+    align-self: center;
 }
 
 .read:hover {
@@ -88,3 +87,39 @@ body{
     transform: scale(1.2);
     font-weight: 700;
 }
+
+.delete-book {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+}
+
+.delete-book:hover{
+    cursor: pointer;
+}
+
+.error{
+    border: 2px solid red;
+}
+
+#new-book {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    margin: 10px;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+
+#new-book .add-book {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+#new-book .add-book:hover {
+    cursor: pointer;
+    transform:scale(1.2)
+} 
