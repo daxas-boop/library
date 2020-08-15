@@ -13,25 +13,19 @@
            <img id="logo" src="images/logo.png" alt="Book logo">
         </div>
     </header>
-    <div id="book-container">
-        <div class="book">
-            <p class="read">NOT Read</p>
-            <h2 class="title">Harry Potter</h2>
-            <p class="author">Author: J. K. Rowling</p>
-            <p class="pages">Pages: 320</p>
-        </div>
-    </div>
+    <div id="book-container"> </div>
 
-    <button id="new-book">NEW BOOK</button> <!-- make form popout -->
+    <div id="new-book"><img class="add-book" src='images/add-book.png'></div>
     <form id="form" class="hidden">
+        
         <label for="title"> Title 
-            <input id="title" type="text"> 
+            <input name="title" id="title" type="text"> 
         </label>
         <label for="author"> Author 
-            <input id="author" type="text"> 
+            <input name="author" id="author" type="text"> 
         </label>
         <label for="pages"> Pages 
-            <input id="pages" type="number"> 
+            <input name="pages" id="pages" type="number"> 
         </label>
         <label for="read"> Read 
             <input id="read" type="checkbox"> 
