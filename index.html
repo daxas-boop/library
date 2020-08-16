@@ -5,36 +5,71 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Daxas Library</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
     <header id="header"> Daxa's Library
-        <div id="logo-container"> 
+        <div id="logo-container">
            <img id="logo" src="images/logo.png" alt="Book logo">
         </div>
     </header>
     <div id="book-container"> </div>
 
-    <div id="new-book"><img class="add-book" src='images/add-book.png'></div>
-    <form id="form" class="hidden">
-        
-        <label for="title"> Title 
-            <input name="title" id="title" type="text"> 
-        </label>
-        <label for="author"> Author 
-            <input name="author" id="author" type="text"> 
-        </label>
-        <label for="pages"> Pages 
-            <input name="pages" id="pages" type="number"> 
-        </label>
-        <label for="read"> Read 
-            <input id="read" type="checkbox"> 
-        </label>
-        <button id="submit">Submit</button>
-    </form>
-    <footer id="footer"> </footer>
+    <div id="new-book">
+        <p id="add-book-txt">Add Book</p>
+        <div id="add-book-img">
+        <img class="add-book" src='images/add-book.png'>
+        </div>
+    </div>
+
+    <div id="form-container" class="hidden">
+        <form id="form">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control" id="title">
+                <small id="title-error" class="form-text text-muted"> </small>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" id="author" name="author">
+                <small id="author-error" class="form-text text-muted"> </small>
+            </div>
+            <div class="form-group">
+                <label for="pages">Pages</label>
+                <input type="number" class="form-control" id="pages" name="pages">
+                <small id="pages-error" class="form-text text-muted"> </small>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="read">
+                <label class="form-check-label" for="read">Did you read the book?</label>
+            </div>
+            <div class="row justify-content-center">
+            <button id="submit" type="submit" class="btn btn-primary">Add Book</button>
+            <button id="close-form" type="button" class="btn btn-danger">Close</button>
+            </div>
+        </form>
+    </div>
+    <footer id="footer">
+        <img id="github">
+    </footer>
 
 
     <script src='script.js'></script>
 </body>
 </html>
+
+
+ <!-- <label class="label" for="title"> Title 
+        <input class="input" name="title" id="title" type="text"> 
+    </label>
+    <label class="label" for="author"> Author 
+        <input class="input" name="author" id="author" type="text"> 
+    </label>
+    <label class="label" for="pages"> Pages 
+        <input class="input" name="pages" id="pages" type="number"> 
+    </label>
+    <label class="label" for="read"> Read 
+        <input class="input" id="read" type="checkbox"> 
+    </label>
+    <button id="submit">Submit</button> -->
