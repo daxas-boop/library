@@ -7,10 +7,11 @@ body{
     background: rgb(45,209,244);
     background: #2C2B30;
     padding-top: 120px;
+    padding-bottom: 50px ;
 }
 
 #header {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 80px;
     top: 0;
@@ -36,16 +37,12 @@ body{
     height: auto;
 }
 
-.hidden {
-    display: none;
-}
-
 #book-container {
     display: grid;
-    margin: 0 20px;
+    width: 70%;
+    margin: auto;
     grid-auto-flow: row;
-    grid-template-columns: repeat(5, 1fr);
-
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 10px;
 }
 
@@ -104,22 +101,58 @@ body{
 }
 
 #new-book {
-    width: 60px;
-    height: 60px;
-    position: absolute;
+    position: fixed;
     margin: 10px;
-    bottom: 0;
-    left: 0;
+    top: 100px;
+    left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#new-book:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#add-book-img {
+    width: 80px;
+    height: 80px;
     display: flex;
 }
 
 #new-book .add-book {
     width: 100%;
     height: auto;
-    margin: auto;
+    align-self: center;
 }
 
-#new-book .add-book:hover {
-    cursor: pointer;
-    transform:scale(1.2)
-} 
+#add-book-txt {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: red;
+    font-weight: 700;
+    font-size: larger;
+}
+
+#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background:#191927 ;
+}
+
+#form-container{
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    width: 50%;
+    background: rgb(141, 190, 121);
+    border-radius: 5px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 800;
+}
+
+.hidden {
+    display: none;
+}
