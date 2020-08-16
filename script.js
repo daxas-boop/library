@@ -75,6 +75,9 @@ function resetInputs(){
     document.querySelector('#author').value = '';
     document.querySelector('#pages').value = '';
     document.querySelector('#read').checked = false;
+    document.querySelector('#title').classList.remove('error')
+    document.querySelector('#author').classList.remove('error')
+    document.querySelector('#pages').classList.remove('error')
 }
 
 function deleteBook(e) {
@@ -86,7 +89,8 @@ function deleteBook(e) {
 function newBook(){
     const $newBook = document.querySelector('#new-book');
     $newBook.addEventListener('click', () => {
-        document.querySelector('#form').classList.remove('hidden');
+        document.querySelector('#form-container').classList.remove('hidden');
+        resetInputs();
     });
 }
 
@@ -170,5 +174,14 @@ function submitForm(){
     });
 }
 
+function closeForm(){
+    const $closeForm = document.querySelector('#close-form');
+    const $form = document.querySelector('#form-container');   
+    $closeForm.addEventListener('click', ()=>{
+        $form.classList.add('hidden');
+    });
+}
+
+closeForm();
 newBook();
 submitForm();
