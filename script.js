@@ -27,21 +27,20 @@ function addBookToLibrary() {
 }
 
 function render() {
-    // maybe add something to check if the container already has that item
     const $bookContainer = document.querySelector('#book-container')
     $bookContainer.innerHTML = '';
     myLibrary.map( item => {
         const $book = document.createElement('div');
         $book.classList.add('book');
         $book.setAttribute('data-book', `${myLibrary.indexOf(item)}`)
-        const $deleteBook = document.createElement('button');
-        $deleteBook.classList.add('delete-book');
-        $deleteBook.innerText = 'X';
+        const $deleteBook = document.createElement('span');
+        $deleteBook.classList.add('close-button');
+        $deleteBook.innerText = '×';
         $deleteBook.addEventListener('click', e => {
             deleteBook(e);
-            render(); // after deleting a book we want to set up all the dataset's to match the index fo the books in the array
+            render(); 
         });
-        const $title = document.createElement('h2');
+        const $title = document.createElement('h1');
         $title.classList.add('title');
         $title.innerText = item.title;
         const $author = document.createElement('p');
@@ -66,10 +65,6 @@ function render() {
     });
 }
 
-function hideForm(){
-    document.querySelector('#form').classList.add('hidden');
-}
-
 function resetInputs(){
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
@@ -84,13 +79,18 @@ function deleteBook(e) {
     const $book = e.target.parentNode;
     myLibrary.splice($book.dataset.book, 1);
     $book.remove();
+    setStorage();
 }
 
 function newBook(){
     const $newBook = document.querySelector('#new-book');
+    const $form = document.querySelector('#form-container');
     $newBook.addEventListener('click', () => {
-        document.querySelector('#form-container').classList.remove('hidden');
-        resetInputs();
+        if ($form.classList.contains('open')){
+            $form.classList.remove('open')
+        } else {
+            $form.classList.add('open')
+        }
     });
 }
 
@@ -144,8 +144,9 @@ function verifyInput(){
     const noErrors = manageErrors(errors) === 0;
     if(noErrors){
         addBookToLibrary();
-        hideForm();
+        closeForm();
         resetInputs();
+        setStorage();
         render();
     }
 }
@@ -159,12 +160,21 @@ function manageErrors(errors) {
        if(error){
            errorCounter++
            $form[key].classList.add('error');
+           key = key + '-error'
+           document.querySelector(`#${key}`).innerText = error;
        }else {
            $form[key].classList.remove('error');
+           key = key + '-error'
+           document.querySelector(`#${key}`).innerText = ''
        }
     });
     return errorCounter;
 }
+
+const $closeForm = document.querySelector('#close-form');
+$closeForm.addEventListener('click', () => {
+    closeForm();
+});
 
 function submitForm(){
     const $submit = document.querySelector('#submit');
@@ -175,13 +185,13 @@ function submitForm(){
 }
 
 function closeForm(){
-    const $closeForm = document.querySelector('#close-form');
     const $form = document.querySelector('#form-container');   
-    $closeForm.addEventListener('click', ()=>{
-        $form.classList.add('hidden');
-    });
+        $form.classList.remove('open');
 }
 
-closeForm();
+function setStorage(){
+    localStorage.setItem('library', JSON.stringify(myLibrary));
+}
+
 newBook();
 submitForm();
