@@ -18,6 +18,7 @@
   "homepage": "https://github.com/daxas-boop/library#readme",
   "devDependencies": {},
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "bootstrap": "^4.5.2"
   }
 }
