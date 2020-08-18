@@ -4,15 +4,10 @@ function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read === true ? 'Read' : 'Not read' 
-    this.toggleRead = () => { 
-        if(this.read === 'Read'){
-            this.read = 'Not Read'
-        } else {
-            this.read = 'Read'
-        }
-    };
-    
+    this.read = read;
+    this.toggleRead = () => {
+        this.read = !this.read
+    } ;
 }
 
 function addBookToLibrary() {
@@ -29,6 +24,7 @@ function addBookToLibrary() {
 function render() {
     const $bookContainer = document.querySelector('#book-container')
     $bookContainer.innerHTML = '';
+
     myLibrary.map( item => {
         const $book = document.createElement('div');
         $book.classList.add('book');
@@ -50,11 +46,12 @@ function render() {
         $pages.innerText = `Pages: ${item.pages}`;
         $pages.classList.add('pages');
         const $read = document.createElement('p');
-        $read.innerText = item.read;
+        item.read === true ? $read.innerText = 'Read' : $read.innerText = 'Not read';
         $read.classList.add('read');
         $read.addEventListener('click', e => {
             item.toggleRead();
-            $read.innerText = item.read;
+            item.read === true ? $read.innerText = 'Read' : $read.innerText = 'Not read'
+            setStorage();
         });
         $book.appendChild($deleteBook);
         $book.appendChild($title)
@@ -146,8 +143,8 @@ function verifyInput(){
         addBookToLibrary();
         closeForm();
         resetInputs();
-        setStorage();
         render();
+        setStorage();
     }
 }
 
@@ -193,5 +190,26 @@ function setStorage(){
     localStorage.setItem('library', JSON.stringify(myLibrary));
 }
 
-newBook();
-submitForm();
+function pushStorageToLibrary(){
+    let storage = JSON.parse(localStorage.getItem('library'));
+    let counter = 0;
+    if(storage){
+        for(let i = 0; i < storage.length; i++){
+            storage[i] = new Book(storage[i].title,storage[i].author,storage[i].pages, storage[i].read)
+        }
+        counter ++;
+        myLibrary = storage
+    }
+    return counter;
+}
+
+function initalize(){
+    let localStorageExist = pushStorageToLibrary() === 1;
+    if(localStorageExist){
+        render();
+    }
+    newBook();
+    submitForm();
+}
+
+initalize();
