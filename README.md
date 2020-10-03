@@ -1,6 +1,14 @@
 # Book library.
 ## Overview
-This project was created as part of the curriculum in Javascript Fullstack on The Odin Project
+This project was created as part of the curriculum in Javascript Fullstack on The Odin Project.</br>
+You can add and remove books to the library. Lets you select author, book name, pages and if read it or not.
+
+## Installation
+
+1. Clone this project locally.
+2. Run `npm install`.
+3. Run `npm run dev`.
+
 
 ## Dependecies
 * [Bootstrap](https://getbootstrap.com/)
