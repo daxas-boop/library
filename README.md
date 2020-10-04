@@ -3,8 +3,7 @@
 This project was created as part of the curriculum in Javascript Fullstack on The Odin Project.</br>
 You can add and remove books to the library. Lets you select author, book name, pages and if you read it or not.
 
-## Installation
-
+## Running the project locally
 1. Clone this project locally.
 2. Run `npm install`.
 3. Run `npm run dev`. </br>
