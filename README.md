@@ -7,9 +7,9 @@ You can add and remove books to the library. Lets you select author, book name, 
 
 1. Clone this project locally.
 2. Run `npm install`.
-3. Run `npm run dev`.</br>
-Open http://localhost:8080/ to view it in the browser.
-The page will reload if you make edits.
+3. Run `npm run dev`. </br>
+ Open http://localhost:8080/ to view it in the browser. </br>
+ The page will reload if you make edits.
 
 ## Dependecies
 * [Bootstrap](https://getbootstrap.com/)
