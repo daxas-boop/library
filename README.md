@@ -1,7 +1,7 @@
 # Book library.
 ## Overview
 This project was created as part of the curriculum in Javascript Fullstack on The Odin Project.</br>
-You can add and remove books to the library. Lets you select author, book name, pages and if you read it or not.
+You can add and remove books to the library. Lets you select author, book name, number of pages and if you read it or not.
 
 ## Running the project locally
 1. Clone this project locally.
